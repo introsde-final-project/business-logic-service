@@ -51,14 +51,6 @@ public class UserImplementation {
         return user;
     }
 
-     /*  Request to add a new user in the list.
-        Expected Input: User (Object)
-        Expected Output: Newly created User with the details associated to that user. (String) *//*
-
-    public static void createUser(User userDetail) throws Exception {
-        response = service.request().accept(MediaType.APPLICATION_JSON).post(Entity.entity(userDetail, MediaType.APPLICATION_JSON_TYPE), Response.class);
-    }*/
-
     /* Request to obtain all measure details about a measure of a user in the list.
         Expected Input: uId (Integer)
                        measureType (String)
