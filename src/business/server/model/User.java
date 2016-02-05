@@ -123,8 +123,11 @@ public class User implements Serializable {
         Float systolicBloodpressure = null;
         Float diastolicBloodpressure = null;
         Float bmi = null;
-        user.setQuote(Quote.getQuote());
-        user.setFoodSuggestion(FoodRecommendation.getFoodRecomm("low-fat"));
+        ArrayList<String> userGoals = new ArrayList<String>();
+        ArrayList<String> userActivities = new ArrayList<String>();
+
+//        user.setQuote(Quote.getQuote());
+//        user.setFoodSuggestion(FoodRecommendation.getFoodRecomm("low-fat"));
 
         List<HealthProfile> healthProfiles = user.getCurrentHealth().getMeasureType();
         for (HealthProfile healthProfile : healthProfiles) {
@@ -140,61 +143,56 @@ public class User implements Serializable {
         }
 
         if (systolicBloodpressure < 70.0 || diastolicBloodpressure < 40.0) {
-            ArrayList<String> userGoals = new ArrayList<String>();
             userGoals.add(GoalImplementation.getGoalByName("extremely-low").getGoalDescription());
-            user.setGoal(userGoals);
-            ArrayList<String> userActivities = new ArrayList<String>();
             userActivities.add(ActivityImplementation.getActivityByName("see-doctor").getActivityDescription());
-            user.setActivity(userActivities);
         }
 
         else if ((systolicBloodpressure >= 70.0 && systolicBloodpressure < 90.0) || (diastolicBloodpressure >= 40 && diastolicBloodpressure < 60)) {
-            ArrayList<String> userGoals = new ArrayList<String>();
             userGoals.add(GoalImplementation.getGoalByName("low-bp").getGoalDescription());
-            user.setGoal(userGoals);
-            ArrayList<String> userActivities = new ArrayList<String>();
             userActivities.add(ActivityImplementation.getActivityByName("safety-first").getActivityDescription());
             userActivities.add(ActivityImplementation.getActivityByName("consult-doctor").getActivityDescription());
-            user.setActivity(userActivities);
         }
 
         else if ((systolicBloodpressure >= 90.0 && systolicBloodpressure <= 120.0) || (diastolicBloodpressure >= 60 && diastolicBloodpressure <= 80)) {
-            ArrayList<String> userGoals = new ArrayList<String>();
             userGoals.add(GoalImplementation.getGoalByName("normal").getGoalDescription());
-            user.setGoal(userGoals);
-            ArrayList<String> userActivities = new ArrayList<String>();
             userActivities.add(ActivityImplementation.getActivityByName("do-mini-workout").getActivityDescription());
             userActivities.add(ActivityImplementation.getActivityByName("play-team-sports").getActivityDescription());
-            user.setActivity(userActivities);
         }
 
         else if ((systolicBloodpressure > 120.0 && systolicBloodpressure <= 140.0) || (diastolicBloodpressure > 80 && diastolicBloodpressure <= 90)) {
-            ArrayList<String> userGoals = new ArrayList<String>();
             userGoals.add(GoalImplementation.getGoalByName("pre-high").getGoalDescription());
-            user.setGoal(userGoals);
-            ArrayList<String> userActivities = new ArrayList<String>();
             userActivities.add(ActivityImplementation.getActivityByName("strength-training-highbp").getActivityDescription());
             userActivities.add(ActivityImplementation.getActivityByName("isometric-exercise").getActivityDescription());
-            user.setActivity(userActivities);
         }
 
         else if ((systolicBloodpressure > 140.0 && systolicBloodpressure <= 180.0) || (diastolicBloodpressure > 90 && diastolicBloodpressure <= 100)) {
-            ArrayList<String> userGoals = new ArrayList<String>();
             userGoals.add(GoalImplementation.getGoalByName("high-bp").getGoalDescription());
-            user.setGoal(userGoals);
-            ArrayList<String> userActivities = new ArrayList<String>();
             userActivities.add(ActivityImplementation.getActivityByName("highbp-limit").getActivityDescription());
             userActivities.add(ActivityImplementation.getActivityByName("highbp-moderate").getActivityDescription());
-            user.setActivity(userActivities);
         }
         else {
-            ArrayList<String> userGoals = new ArrayList<String>();
             userGoals.add(GoalImplementation.getGoalByName("extremely-high").getGoalDescription());
-            user.setGoal(userGoals);
-            ArrayList<String> userActivities = new ArrayList<String>();
             userActivities.add(ActivityImplementation.getActivityByName("see-doctor").getActivityDescription());
-            user.setActivity(userActivities);
         }
+
+        if (bmi < 18.5) {
+            userGoals.add(GoalImplementation.getGoalByName("under-weight").getGoalDescription());
+        }
+        else if (bmi >= 18.5 && bmi < 25) {
+            userGoals.add(GoalImplementation.getGoalByName("healthy").getGoalDescription());
+        }
+        else if (bmi >= 25 && bmi <= 30) {
+            userGoals.add(GoalImplementation.getGoalByName("over-weight").getGoalDescription());
+        }
+        else if (bmi >= 30 && bmi <= 35) {
+            userGoals.add(GoalImplementation.getGoalByName("obese").getGoalDescription());
+        }
+        else {
+            userGoals.add(GoalImplementation.getGoalByName("very-obese").getGoalDescription());
+        }
+
+        user.setGoal(userGoals);
+        user.setActivity(userActivities);
         return user;
     }
 }
