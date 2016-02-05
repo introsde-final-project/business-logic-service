@@ -34,7 +34,7 @@ public class App {
     }
 
     public static ResourceConfig createApp() {
-        System.out.println("Starting storage service...");
+        System.out.println("Starting business service...");
         return new business.server.ApplicationConfig();
     }
 }

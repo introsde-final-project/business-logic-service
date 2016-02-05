@@ -58,18 +58,6 @@ public class UserResource {
 
     }
 
-    /* *//*  Request to add a new user in the list.
-        Expected Input: User (Object)
-        Expected Output: Newly created User with the details associated to that user. (String) *//*
-
-    @POST
-    @Produces({MediaType.APPLICATION_JSON})
-    @Consumes({MediaType.APPLICATION_JSON})
-    public void createUser(User user) throws Exception {
-        System.out.println("Creating new user...");
-        UserImplementation.createUser(user);
-    }*/
-
     /* Navigates to HealthMeasureHistoryResource if both uId and measuretype is obtained */
     @Path("{uId}/{measuretype}")
     public HealthMeasureHistoryResource getUserHistory(@PathParam("uId") int uId, @PathParam("measuretype") String measuretype) {
