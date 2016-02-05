@@ -126,8 +126,7 @@ public class User implements Serializable {
         ArrayList<String> userGoals = new ArrayList<String>();
         ArrayList<String> userActivities = new ArrayList<String>();
 
-//        user.setQuote(Quote.getQuote());
-//        user.setFoodSuggestion(FoodRecommendation.getFoodRecomm("low-fat"));
+        user.setQuote(Quote.getQuote());
 
         List<HealthProfile> healthProfiles = user.getCurrentHealth().getMeasureType();
         for (HealthProfile healthProfile : healthProfiles) {
@@ -177,18 +176,23 @@ public class User implements Serializable {
 
         if (bmi < 18.5) {
             userGoals.add(GoalImplementation.getGoalByName("under-weight").getGoalDescription());
+            user.setFoodSuggestion(FoodRecommendation.getFoodRecomm("high-protein"));
         }
         else if (bmi >= 18.5 && bmi < 25) {
             userGoals.add(GoalImplementation.getGoalByName("healthy").getGoalDescription());
+            user.setFoodSuggestion(FoodRecommendation.getFoodRecomm("balanced"));
         }
         else if (bmi >= 25 && bmi <= 30) {
             userGoals.add(GoalImplementation.getGoalByName("over-weight").getGoalDescription());
+            user.setFoodSuggestion(FoodRecommendation.getFoodRecomm("low-carb"));
         }
         else if (bmi >= 30 && bmi <= 35) {
             userGoals.add(GoalImplementation.getGoalByName("obese").getGoalDescription());
+            user.setFoodSuggestion(FoodRecommendation.getFoodRecomm("low-fat"));
         }
         else {
             userGoals.add(GoalImplementation.getGoalByName("very-obese").getGoalDescription());
+            user.setFoodSuggestion(FoodRecommendation.getFoodRecomm("low-fat-abs"));
         }
 
         user.setGoal(userGoals);
