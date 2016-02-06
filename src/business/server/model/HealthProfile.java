@@ -17,7 +17,7 @@ public class HealthProfile implements Serializable {
     private int idHealthProfile;
     private Date dateRegistered;
     private String measureType;
-    private Float measureValue;
+    private String measureValue;
     private String measureValueType;
 
     public int getIdHealthProfile() {
@@ -44,11 +44,11 @@ public class HealthProfile implements Serializable {
         this.measureType = measureType;
     }
 
-    public Float getMeasureValue() {
+    public String getMeasureValue() {
         return measureValue;
     }
 
-    public void setMeasureValue(Float measureValue) {
+    public void setMeasureValue(String measureValue) {
         this.measureValue = measureValue;
     }
 

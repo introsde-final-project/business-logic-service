@@ -16,7 +16,7 @@ import java.util.List;
  * Created by bishruti on 2/5/16.
  */
 public class ActivityImplementation {
-    GoalImplementation activity = new GoalImplementation();
+    ActivityImplementation activity = new ActivityImplementation();
     private static ClientConfig clientConfig = new ClientConfig();
     private static Client client = ClientBuilder.newClient(clientConfig);
     private static WebTarget service = client.target(getBaseURI());

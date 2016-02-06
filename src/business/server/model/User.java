@@ -131,13 +131,13 @@ public class User implements Serializable {
         List<HealthProfile> healthProfiles = user.getCurrentHealth().getMeasureType();
         for (HealthProfile healthProfile : healthProfiles) {
             if (healthProfile.getMeasureType().equalsIgnoreCase("systolic-bloodpressure")) {
-                systolicBloodpressure = healthProfile.getMeasureValue();
+                systolicBloodpressure = Float.parseFloat(healthProfile.getMeasureValue());
             }
             if (healthProfile.getMeasureType().equalsIgnoreCase("diastolic-bloodpressure")) {
-                diastolicBloodpressure = healthProfile.getMeasureValue();
+                diastolicBloodpressure = Float.parseFloat(healthProfile.getMeasureValue());
             }
             if (healthProfile.getMeasureType().equalsIgnoreCase("bmi")) {
-                bmi = healthProfile.getMeasureValue();
+                bmi = Float.parseFloat(healthProfile.getMeasureValue());
             }
         }
 

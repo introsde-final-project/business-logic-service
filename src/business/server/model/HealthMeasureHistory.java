@@ -15,7 +15,6 @@ public class HealthMeasureHistory implements Serializable {
     private Date dateRegistered;
     private String measureType;
     private Float measureValue;
-    //Float.parseFloat(weight_String);
     private String measureValueType;
 
     public int getHmhId() {
