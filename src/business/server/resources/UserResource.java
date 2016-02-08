@@ -27,7 +27,7 @@ public class UserResource {
 
     /*  Request to obtain all the users and their details in the list.
         Expected Input: -
-        Expected Output: List of users (String) */
+        Expected Output: List of users (List) */
 
     @GET
     @Produces({ MediaType.APPLICATION_JSON})
@@ -44,7 +44,7 @@ public class UserResource {
 
      /* Request to obtain a user and the details associated to that user from the list.
        Expected Input: uId (Integer)
-       Expected Output: User and the details associated to that user. (String) */
+       Expected Output: User and the details associated to that user. (Object) */
 
     @Path("{uId}")
     @GET

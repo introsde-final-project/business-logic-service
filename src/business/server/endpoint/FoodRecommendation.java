@@ -25,6 +25,10 @@ public class FoodRecommendation {
                 "http://127.0.1.1:8004/storage/foodrecomm?foodType=" + foodType).build();
     }
 
+     /*  Request to obtain Food Recommendation.
+       Expected Input: FoodType
+       Expected Output: Food Recommendation (Object) */
+
     public static FoodSuggestion getFoodRecomm(String foodType) {
         ClientConfig clientConfig = new ClientConfig();
         Client client = ClientBuilder.newClient(clientConfig);

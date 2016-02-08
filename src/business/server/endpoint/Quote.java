@@ -21,6 +21,11 @@ public class Quote {
     private static URI getBaseURI() {
         return UriBuilder.fromUri("http://127.0.1.1:8004/storage/quote").build();
     }
+
+     /*  Request to obtain quote.
+       Expected Input: -
+       Expected Output: Quote (String) */
+
     public static String getQuote() {
         ClientConfig clientConfig = new ClientConfig();
         Client client = ClientBuilder.newClient(clientConfig);

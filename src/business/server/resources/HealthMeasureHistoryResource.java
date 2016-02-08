@@ -31,7 +31,7 @@ public class HealthMeasureHistoryResource {
     /* Request to obtain all measure details about a measure of a user in the list.
         Expected Input: uId (Integer)
                        measureType (String)
-       Expected Output: List of details of measure types. (String) */
+       Expected Output: List of details of measure types. (List) */
 
     @GET
     @Produces({MediaType.APPLICATION_JSON})
@@ -50,7 +50,7 @@ public class HealthMeasureHistoryResource {
         Expected Input: uId (Integer)
                         measureType (String)
                         hmhId (Integer)
-        Expected Output: Details of a particular measure. (String) */
+        Expected Output: Details of a particular measure. (List) */
 
     @Path("/{hmhId}")
     @GET

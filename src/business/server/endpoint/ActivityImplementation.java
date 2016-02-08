@@ -28,7 +28,7 @@ public class ActivityImplementation {
 
      /* Request to obtain all the activities and their details in the list.
        Expected Input: -
-       Expected Output: List of activities (String) */
+       Expected Output: List of activities (List) */
 
     public static List<Activity> getActivityList() throws Exception {
         response = service.request().accept(MediaType.APPLICATION_JSON).get();
@@ -38,7 +38,7 @@ public class ActivityImplementation {
 
     /* Request to obtain an activity and the details associated to that activity from the list.
        Expected Input: activityId (Integer)
-       Expected Output: Activity and the details associated to that activity. (String) */
+       Expected Output: Activity and the details associated to that activity. (Object) */
 
     public static Activity getActivityById(Integer activityId) throws Exception {
         response = service.path(String.valueOf(activityId)).request().accept(MediaType.APPLICATION_JSON).get();
@@ -48,7 +48,7 @@ public class ActivityImplementation {
 
     /* Request to obtain an activity and the details associated to that activity from the list by activityName.
        Expected Input: activityName (String)
-       Expected Output: Activity and the details associated to that activity. (String) */
+       Expected Output: Activity and the details associated to that activity. (Object) */
 
     public static Activity getActivityByName(String activityName) throws Exception {
         response = service.path("name/" + activityName).request().accept(MediaType.APPLICATION_JSON).get();
