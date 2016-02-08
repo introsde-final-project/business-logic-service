@@ -22,7 +22,7 @@ public class FoodRecommendation {
     private static URI getBaseURI(String foodType) {
         return UriBuilder.fromUri(
                 //Change here for passing params like low-fat,low-sugar, No-oil-added
-                "http://127.0.1.1:8004/storage/foodrecomm?foodType=" + foodType).build();
+                "http://storage-service.herokuapp.com/storage/foodrecomm?foodType=" + foodType).build();
     }
 
      /*  Request to obtain Food Recommendation.

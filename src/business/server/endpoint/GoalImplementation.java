@@ -23,7 +23,7 @@ public class GoalImplementation {
     private static Response response;
 
     private static URI getBaseURI() {
-        return UriBuilder.fromUri("http://127.0.1.1:8004/storage/goal").build();
+        return UriBuilder.fromUri("http://storage-service.herokuapp.com/storage/goal").build();
     }
 
      /*  Request to obtain all the goals and their details in the list.

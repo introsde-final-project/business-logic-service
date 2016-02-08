@@ -19,7 +19,7 @@ public class Quote {
     private static WebTarget service;
     private static Response response;
     private static URI getBaseURI() {
-        return UriBuilder.fromUri("http://127.0.1.1:8004/storage/quote").build();
+        return UriBuilder.fromUri("http://storage-service.herokuapp.com/storage/quote").build();
     }
 
      /*  Request to obtain quote.

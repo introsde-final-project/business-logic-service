@@ -23,7 +23,7 @@ public class ActivityImplementation {
     private static Response response;
 
     private static URI getBaseURI() {
-        return UriBuilder.fromUri("http://127.0.1.1:8004/storage/activity").build();
+        return UriBuilder.fromUri("http://storage-service.herokuapp.com/storage/activity").build();
     }
 
      /* Request to obtain all the activities and their details in the list.

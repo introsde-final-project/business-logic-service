@@ -28,7 +28,7 @@ public class UserImplementation {
     private static ObjectMapper userMapper = new ObjectMapper();
 
     private static URI getBaseURI() {
-        return UriBuilder.fromUri("http://127.0.1.1:8004/storage/user").build();
+        return UriBuilder.fromUri("http://storage-service.herokuapp.com/storage/user").build();
     }
 
     /*  Request to obtain all the users and their details in the list.
